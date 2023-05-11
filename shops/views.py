@@ -3,6 +3,8 @@ from django.views import generic
 from django.contrib.gis.geos import fromstr, Point
 from django.contrib.gis.db.models.functions import Distance
 from .models import Shop
+from pathlib import Path
+import json
 
 # we're hard coding the coordinates of Nairobi 
 # This is to simulate a user's location. 
@@ -21,6 +23,9 @@ latitude2 = 1.2921
 
 user_location2 = Point(longitude2, latitude2, srid=4326)
 # user_location = fromstr(f'POINT({longitude} {latitude})', srid=4326)
+
+# Let's try to display shops in miami here
+DATA_FILENAME = 'data.json'
 
 class Home(generic.ListView):
     """A view of shops around the user's location"""
